@@ -3,11 +3,9 @@ import SwiftUI
 struct TodayView: View {
     @EnvironmentObject private var settings: ConnectionSettings
     @EnvironmentObject private var motion: HeadphoneMotionService
+    @EnvironmentObject private var focusTimer: FocusTimerService
     @State private var studyData: StudyData?
-    @State private var seconds = 0
-    @State private var isRunning = false
     @State private var error: String?
-    @State private var timer: Timer?
     @State private var presenceTimer: Timer?
     @State private var collectedScores: [Double] = []
 
@@ -28,7 +26,12 @@ struct TodayView: View {
             }
             .background(Color.pageBackground)
             .navigationTitle("오늘")
-            .task { await loadStudy() }
+            .task {
+                await loadStudy()
+                // resume presence sampling if a session was already running
+                // before navigating to another tab and back.
+                if focusTimer.isRunning, presenceTimer == nil { startPresenceTimer() }
+            }
         }
     }
 
@@ -55,17 +58,17 @@ struct TodayView: View {
             HStack {
                 SectionHeading(eyebrow: "FOCUS SESSION", title: "오늘의 집중 세션")
                 Spacer()
-                Text(isRunning ? "집중 중" : "준비됨").font(.system(size: 12, weight: .semibold)).foregroundStyle(.secondary)
+                Text(focusTimer.isRunning ? "집중 중" : "준비됨").font(.system(size: 12, weight: .semibold)).foregroundStyle(.secondary)
             }
             Text(timerLabel).font(.system(size: 48, weight: .bold, design: .rounded))
             Text(statusCopy).font(.system(size: 13)).foregroundStyle(.secondary)
             HStack(spacing: 10) {
-                Button(isRunning ? "세션 저장" : "집중 시작") {
-                    if isRunning { Task { await finishSession() } } else { startSession() }
+                Button(focusTimer.isRunning ? "세션 저장" : "집중 시작") {
+                    if focusTimer.isRunning { Task { await finishSession() } } else { startSession() }
                 }
                 .buttonStyle(.primary)
-                if isRunning {
-                    Button("타이머 초기화") { seconds = 0 }.buttonStyle(.chip(selected: false))
+                if focusTimer.isRunning {
+                    Button("타이머 초기화") { focusTimer.reset() }.buttonStyle(.chip(selected: false))
                 }
             }
         }
@@ -81,11 +84,11 @@ struct TodayView: View {
     }
 
     private var timerLabel: String {
-        String(format: "%02d:%02d", seconds / 60, seconds % 60)
+        String(format: "%02d:%02d", focusTimer.elapsedSeconds / 60, focusTimer.elapsedSeconds % 60)
     }
 
     private var statusCopy: String {
-        guard isRunning else { return "타이머를 시작하면 AirPods 착용 여부로 학습 중인지 자동으로 감지해요." }
+        guard focusTimer.isRunning else { return "타이머를 시작하면 AirPods 착용 여부로 학습 중인지 자동으로 감지해요." }
         guard motion.isAvailable else { return "지금은 한 가지 학습에만 집중해보세요. 25분 뒤 휴식을 권장합니다." }
         return motion.isStudying
             ? "AirPods로 학습 중 감지됨 · \(String(format: "%.1f", motion.presenceScore))/10"
@@ -93,13 +96,14 @@ struct TodayView: View {
     }
 
     private func startSession() {
-        seconds = 0
         collectedScores = []
-        isRunning = true
+        focusTimer.start()
         motion.start()
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            Task { @MainActor in seconds += 1 }
-        }
+        startPresenceTimer()
+    }
+
+    private func startPresenceTimer() {
+        presenceTimer?.invalidate()
         presenceTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { _ in
             Task { @MainActor in
                 collectedScores.append(motion.presenceScore)
@@ -109,18 +113,18 @@ struct TodayView: View {
     }
 
     private func finishSession() async {
-        isRunning = false
-        timer?.invalidate()
-        timer = nil
+        let elapsedSeconds = focusTimer.stop()
         presenceTimer?.invalidate()
         presenceTimer = nil
         motion.stop()
 
-        let minutes = max(1, Int((Double(seconds) / 60).rounded()))
+        // a session under 30s rounds to 0 minutes — don't inflate it to a
+        // fake "1분" of study, just drop it.
+        let minutes = Int((Double(elapsedSeconds) / 60).rounded())
+        guard minutes >= 1 else { return }
         let averagePresence = collectedScores.isEmpty ? nil : collectedScores.reduce(0, +) / Double(collectedScores.count)
         do {
-            studyData = try await client.saveStudySession(minutes: minutes, focusState: seconds >= 20 * 60 ? "steady" : "short", presenceScore: averagePresence)
-            seconds = 0
+            studyData = try await client.saveStudySession(minutes: minutes, focusState: elapsedSeconds >= 20 * 60 ? "steady" : "short", presenceScore: averagePresence)
         } catch {
             self.error = error.localizedDescription
         }

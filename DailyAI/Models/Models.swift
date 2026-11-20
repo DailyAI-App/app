@@ -83,8 +83,13 @@ struct QuizQuestion: Codable {
     var flaw: String?
     var correction: String?
     var explanation: String
-    // only present on the first question of a run — cache it and send it
-    // back as `cachedText` on every later question instead of re-uploading.
+}
+
+// the whole quiz, generated in one batch call.
+struct QuizBatch: Codable {
+    var questions: [QuizQuestion]
+    // only present on the first call of a run — cache it and send it back
+    // as `cachedText` on a restart instead of re-uploading the file.
     var sourceText: String?
 }
 

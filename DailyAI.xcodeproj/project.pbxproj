@@ -16,6 +16,7 @@
 		779609E84C2822D652009841 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C93CD45DBDA3FF3A0F627F36 /* Assets.xcassets */; };
 		7D75292AB2A408BC7E921A0C /* HeadphoneMotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47DD9C3C168B2B0316897E2 /* HeadphoneMotionService.swift */; };
 		7D2196720D3F4E69F323B9B0 /* VoiceAnswerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C06795CC6C43A76C2179E3 /* VoiceAnswerService.swift */; };
+		15A988F52462AFB4F73BFA23 /* FocusTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501FFD0A56F843D0AB5BD84 /* FocusTimerService.swift */; };
 		44D523753FB734A41F155A8D /* TodayTimelineBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BA4F901B6B12212742BDA /* TodayTimelineBar.swift */; };
 		BA94F45DFFB7D6F2D8AB58E1 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D910BF1690AFB6D977843A /* TodayView.swift */; };
 		881F6CF348AF5731D2D5EF26 /* DailyAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8419B00A160A6AEC2FFE1ED /* DailyAIApp.swift */; };
@@ -39,6 +40,7 @@
 		F3C9751356B312CDD2DFCE7E /* ConnectionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD67C0D34A6EB0C4A68D658 /* ConnectionSettings.swift */; };
 		FD1C3BFA3BED33A9DB9FED6F /* HeadphoneMotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47DD9C3C168B2B0316897E2 /* HeadphoneMotionService.swift */; };
 		A1607E1615025D9E9B51594B /* VoiceAnswerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C06795CC6C43A76C2179E3 /* VoiceAnswerService.swift */; };
+		7F7A598C32B65136FA2F7380 /* FocusTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8501FFD0A56F843D0AB5BD84 /* FocusTimerService.swift */; };
 		FC7C3B0905AD2114B007B2FF /* TodayTimelineBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BA4F901B6B12212742BDA /* TodayTimelineBar.swift */; };
 		CE27D26E81350E45EF3DA95B /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D910BF1690AFB6D977843A /* TodayView.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +57,7 @@
 		901AACBF019663C1EB35C81D /* DailyAIMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyAIMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47DD9C3C168B2B0316897E2 /* HeadphoneMotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphoneMotionService.swift; sourceTree = "<group>"; };
 		63C06795CC6C43A76C2179E3 /* VoiceAnswerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAnswerService.swift; sourceTree = "<group>"; };
+		8501FFD0A56F843D0AB5BD84 /* FocusTimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimerService.swift; sourceTree = "<group>"; };
 		997BA4F901B6B12212742BDA /* TodayTimelineBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTimelineBar.swift; sourceTree = "<group>"; };
 		E7D910BF1690AFB6D977843A /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		BE726FC9E4DE9ECBD55F1973 /* DailyAI.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = DailyAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +84,7 @@
 				0BD67C0D34A6EB0C4A68D658 /* ConnectionSettings.swift */,
 				B47DD9C3C168B2B0316897E2 /* HeadphoneMotionService.swift */,
 				63C06795CC6C43A76C2179E3 /* VoiceAnswerService.swift */,
+				8501FFD0A56F843D0AB5BD84 /* FocusTimerService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -244,6 +248,7 @@
 				9729C30184C81703C0D8D582 /* DailyAIApp.swift in Sources */,
 				7D75292AB2A408BC7E921A0C /* HeadphoneMotionService.swift in Sources */,
 				7D2196720D3F4E69F323B9B0 /* VoiceAnswerService.swift in Sources */,
+				15A988F52462AFB4F73BFA23 /* FocusTimerService.swift in Sources */,
 				44D523753FB734A41F155A8D /* TodayTimelineBar.swift in Sources */,
 				BA94F45DFFB7D6F2D8AB58E1 /* TodayView.swift in Sources */,
 				415BE9112AAEFBE933696D97 /* Models.swift in Sources */,
@@ -266,6 +271,7 @@
 				881F6CF348AF5731D2D5EF26 /* DailyAIApp.swift in Sources */,
 				FD1C3BFA3BED33A9DB9FED6F /* HeadphoneMotionService.swift in Sources */,
 				A1607E1615025D9E9B51594B /* VoiceAnswerService.swift in Sources */,
+				7F7A598C32B65136FA2F7380 /* FocusTimerService.swift in Sources */,
 				FC7C3B0905AD2114B007B2FF /* TodayTimelineBar.swift in Sources */,
 				CE27D26E81350E45EF3DA95B /* TodayView.swift in Sources */,
 				9EE3941B275CA1CE1416668E /* Models.swift in Sources */,

@@ -138,13 +138,15 @@ struct APIClient {
         _ = try? await URLSession.shared.data(for: makeRequest(path: "/api/trainer/attempts/\(id)", method: "DELETE", body: nil))
     }
 
-    // First call in a quiz run uploads the file; every later question in
-    // that run should pass `cachedText` (from the first response's
-    // `sourceText`) instead — re-parsing the same PDF/PPTX on every
-    // question was the main source of slow question generation.
-    // `exclude` carries every prompt already asked this run so the model
-    // doesn't repeat itself.
-    func generateQuestion(fileData: Data?, fileName: String, mimeType: String, cachedText: String?, type: String, exclude: [String]) async throws -> QuizQuestion {
+    // Generates the whole quiz in one call — the model sees every slot it's
+    // filling at once, which is far more reliable for avoiding repeats than
+    // asking one question at a time, and it also means "다음 문제" is just
+    // stepping through an already-fetched array (no stale question left on
+    // screen, answerable, while the next one loads).
+    // First call in a quiz run uploads the file; a restart on the same
+    // material should pass `cachedText` (from the first response's
+    // `sourceText`) instead of re-uploading + re-parsing the file.
+    func generateQuiz(fileData: Data?, fileName: String, mimeType: String, cachedText: String?, typeMode: String, questionCount: Int) async throws -> QuizBatch {
         let boundary = "Boundary-\(UUID().uuidString)"
         var body = Data()
 
@@ -154,10 +156,8 @@ struct APIClient {
             body.append("\(value)\r\n".data(using: .utf8)!)
         }
 
-        appendField("type", type)
-        if let excludeJSON = try? JSONSerialization.data(withJSONObject: exclude), let excludeString = String(data: excludeJSON, encoding: .utf8) {
-            appendField("exclude", excludeString)
-        }
+        appendField("typeMode", typeMode)
+        appendField("questionCount", String(questionCount))
 
         if let cachedText {
             appendField("text", cachedText)

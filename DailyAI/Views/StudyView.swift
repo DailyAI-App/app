@@ -22,13 +22,16 @@ struct StudyView: View {
     @State private var selectedOx: Bool?
     @State private var selectedIndex: Int?
     @State private var blankInput = ""
+    @State private var guess = ""
     @State private var graded: Bool?
 
-    // one "시작" = one chapter in 오답노트; cachedText/askedPrompts avoid
-    // re-parsing the file and repeating questions on every call.
+    // one "시작" = one chapter in 오답노트. The whole quiz is fetched in one
+    // batch call up front, so "다음 문제" is just stepping through
+    // quizQuestions — no per-question network wait, and nothing stale left
+    // on screen to answer while the next one loads.
     @State private var quizSessionId: String?
     @State private var cachedText: String?
-    @State private var askedPrompts: [String] = []
+    @State private var quizQuestions: [QuizQuestion] = []
 
     private var client: APIClient { APIClient(baseURL: settings.baseURL, apiKey: settings.apiKey) }
     private let pptxType = UTType(filenameExtension: "pptx") ?? .data
@@ -193,13 +196,18 @@ struct StudyView: View {
                     TextField("정답 입력", text: $blankInput).textFieldStyle(.roundedBorder)
                     Button("제출") { answerBlank(question) }
                         .buttonStyle(.primary)
-                        .disabled(graded != nil || blankInput.isEmpty)
+                        .disabled(graded != nil || blankInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
             default: // descriptive
                 Eyebrow(text: "이 설명 중 한 군데가 틀렸어요")
                 Text(question.explanation).font(.system(size: 15))
                 if graded == nil {
-                    Button("정답 확인") { revealDescriptive() }.buttonStyle(.primary)
+                    TextField("어디가, 왜 틀렸다고 생각하는지 적어보세요", text: $guess, axis: .vertical)
+                        .textFieldStyle(.roundedBorder)
+                        .lineLimit(3...6)
+                    Button("정답 확인") { revealDescriptive() }
+                        .buttonStyle(.primary)
+                        .disabled(guess.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
             }
 
@@ -213,7 +221,7 @@ struct StudyView: View {
                     } else {
                         Text(question.explanation)
                     }
-                    Button(questionNumber == questionCount ? "학습 완료" : "다음 문제") { Task { await nextQuestion() } }
+                    Button(questionNumber == questionCount ? "학습 완료" : "다음 문제") { nextQuestion() }
                         .buttonStyle(.primary)
                         .padding(.top, 4)
                 }
@@ -292,63 +300,53 @@ struct StudyView: View {
     }
 
     private func startSession(_ url: URL) async {
-        questionNumber = 1
+        questionNumber = 0
         completed = 0
         sessionDone = false
-        askedPrompts = []
+        question = nil
+        resetAnswerState()
         do {
             quizSessionId = try await client.createQuizSession(sourceName: url.lastPathComponent, questionCount: questionCount).id
         } catch {
             quizSessionId = nil // mistakes still log without a chapter if this fails
         }
-        await generate(url: url, number: 1)
-    }
 
-    private func nextQuestion() async {
-        guard let fileURL else { return }
-        if questionNumber >= questionCount {
-            question = nil
-            sessionDone = true
-            await loadStudy()
-            return
-        }
-        questionNumber += 1
-        await generate(url: fileURL, number: questionNumber)
-    }
-
-    private func generate(url: URL, number: Int) async {
         isLoading = true
         error = nil
-        resetAnswerState()
         defer { isLoading = false }
         do {
-            let type = typeMode == .mix ? autoMixOrder[(number - 1) % autoMixOrder.count].rawValue : typeMode.rawValue
             let mime = url.pathExtension.lowercased() == "pdf"
                 ? "application/pdf"
                 : "application/vnd.openxmlformats-officedocument.presentationml.presentation"
             let fileData = cachedText == nil ? try Data(contentsOf: url) : nil
-            let result = try await client.generateQuestion(fileData: fileData, fileName: url.lastPathComponent, mimeType: mime, cachedText: cachedText, type: type, exclude: askedPrompts)
-            if let sourceText = result.sourceText { cachedText = sourceText }
-            askedPrompts.append(promptSignature(result))
-            question = result
+            let batch = try await client.generateQuiz(fileData: fileData, fileName: url.lastPathComponent, mimeType: mime, cachedText: cachedText, typeMode: typeMode.rawValue, questionCount: questionCount)
+            guard !batch.questions.isEmpty else { throw APIError.server("문제를 만들지 못했어요. 다시 시도해주세요.") }
+            if let sourceText = batch.sourceText { cachedText = sourceText }
+            quizQuestions = batch.questions
+            questionNumber = 1
+            question = batch.questions[0]
         } catch {
             self.error = error.localizedDescription
         }
     }
 
-    private func promptSignature(_ q: QuizQuestion) -> String {
-        switch q.type {
-        case "ox": return q.statement ?? ""
-        case "mcq": return q.question ?? ""
-        case "fill_blank": return q.sentence ?? ""
-        default: return q.explanation
+    private func nextQuestion() {
+        if questionNumber >= questionCount {
+            question = nil
+            sessionDone = true
+            Task { await loadStudy() }
+            return
         }
+        questionNumber += 1
+        question = questionNumber - 1 < quizQuestions.count ? quizQuestions[questionNumber - 1] : nil
+        resetAnswerState()
     }
 
     private func resetAnswerState() {
         selectedOx = nil
         selectedIndex = nil
         blankInput = ""
+        guess = ""
         graded = nil
     }
 
@@ -385,6 +383,7 @@ struct StudyView: View {
     }
 
     private func revealDescriptive() {
+        guard graded == nil, !guess.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
         graded = true
         completed += 1
     }
