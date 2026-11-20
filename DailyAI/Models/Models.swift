@@ -7,20 +7,40 @@ struct CalendarEvent: Codable, Identifiable, Equatable {
     var detail: String?
 }
 
+struct RoadmapTopic: Codable, Hashable {
+    var name: String
+    var done: Bool
+}
+
 struct RoadmapStep: Codable, Identifiable, Equatable, Hashable {
     let id: String
     var title: String
+    // what to actually study for this step (roadmap.sh-style detail)...
+    var detail: String?
+    // ...plus the concrete named sub-topics, shown as their own small
+    // boxes under the step (same as roadmap.sh), each individually
+    // checkable to track specific competencies built.
+    var topics: [RoadmapTopic]?
     var done: Bool
 }
 
 struct Roadmap: Codable, Identifiable, Equatable, Hashable {
     let id: String
     var company: String
+    // the target job/role at that company — was always implicitly
+    // "developer"; now the user names it (marketer, designer, PM, ...).
+    var role: String?
     var steps: [RoadmapStep]
 }
 
+struct RoadmapStepDraft: Codable {
+    var title: String
+    var detail: String?
+    var topics: [String]?
+}
+
 struct RoadmapGenerateResult: Codable {
-    var steps: [String]
+    var steps: [RoadmapStepDraft]
 }
 
 // AirPods-detected study presence, not posture.

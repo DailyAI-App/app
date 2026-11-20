@@ -70,15 +70,16 @@ struct APIClient {
         return r.roadmaps
     }
 
-    func generateRoadmapSteps(company: String) async throws -> [String] {
-        let body = try JSONSerialization.data(withJSONObject: ["company": company])
+    func generateRoadmapSteps(company: String, role: String) async throws -> [RoadmapStepDraft] {
+        let body = try JSONSerialization.data(withJSONObject: ["company": company, "role": role])
         let result: RoadmapGenerateResult = try await send(makeRequest(path: "/api/roadmap", method: "POST", body: body))
         return result.steps
     }
 
-    func saveRoadmap(company: String, steps: [String]) async throws -> [Roadmap] {
+    func saveRoadmap(company: String, role: String, steps: [RoadmapStepDraft]) async throws -> [Roadmap] {
         struct Response: Decodable { var roadmaps: [Roadmap] }
-        let body = try JSONSerialization.data(withJSONObject: ["company": company, "steps": steps])
+        let stepObjects: [[String: Any]] = steps.map { ["title": $0.title, "detail": $0.detail ?? "", "topics": $0.topics ?? []] }
+        let body = try JSONSerialization.data(withJSONObject: ["company": company, "role": role, "steps": stepObjects])
         let r: Response = try await send(makeRequest(path: "/api/roadmaps", method: "POST", body: body))
         return r.roadmaps
     }
@@ -86,6 +87,13 @@ struct APIClient {
     func toggleRoadmapStep(roadmapId: String, stepId: String) async throws -> [Roadmap] {
         struct Response: Decodable { var roadmaps: [Roadmap] }
         let body = try JSONSerialization.data(withJSONObject: ["stepId": stepId])
+        let r: Response = try await send(makeRequest(path: "/api/roadmaps/\(roadmapId)", method: "PATCH", body: body))
+        return r.roadmaps
+    }
+
+    func toggleRoadmapTopic(roadmapId: String, stepId: String, topicIndex: Int) async throws -> [Roadmap] {
+        struct Response: Decodable { var roadmaps: [Roadmap] }
+        let body = try JSONSerialization.data(withJSONObject: ["stepId": stepId, "topicIndex": topicIndex])
         let r: Response = try await send(makeRequest(path: "/api/roadmaps/\(roadmapId)", method: "PATCH", body: body))
         return r.roadmaps
     }
