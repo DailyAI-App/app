@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02DD179C13C504CF86424126 /* ConnectionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD67C0D34A6EB0C4A68D658 /* ConnectionSettings.swift */; };
+		0587D12EF91E7FEA383FB4C4 /* RoadmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FDFF01DCBB48AA259379D /* RoadmapView.swift */; };
+		0FC34D03A87FED2FDF6DE189 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AA1055C63D8F00A66C0EA1 /* APIClient.swift */; };
+		145B96B56552E79E849494E3 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 61B765A118342694BFB4C0B5 /* AppIcon.icns */; };
+		1EC26586CB1076F35D642E25 /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 61B765A118342694BFB4C0B5 /* AppIcon.icns */; };
+		415BE9112AAEFBE933696D97 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62798E50BC9F86299DCB5DDA /* Models.swift */; };
+		779609E84C2822D652009841 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C93CD45DBDA3FF3A0F627F36 /* Assets.xcassets */; };
+		7D75292AB2A408BC7E921A0C /* HeadphoneMotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47DD9C3C168B2B0316897E2 /* HeadphoneMotionService.swift */; };
+		7D2196720D3F4E69F323B9B0 /* VoiceAnswerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C06795CC6C43A76C2179E3 /* VoiceAnswerService.swift */; };
+		44D523753FB734A41F155A8D /* TodayTimelineBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BA4F901B6B12212742BDA /* TodayTimelineBar.swift */; };
+		BA94F45DFFB7D6F2D8AB58E1 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D910BF1690AFB6D977843A /* TodayView.swift */; };
+		881F6CF348AF5731D2D5EF26 /* DailyAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8419B00A160A6AEC2FFE1ED /* DailyAIApp.swift */; };
+		8889207115FD49D1D200F656 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38FF92087A32B8F7BEB08 /* SettingsView.swift */; };
+		9729C30184C81703C0D8D582 /* DailyAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8419B00A160A6AEC2FFE1ED /* DailyAIApp.swift */; };
+		98D73987BF9CADC566FB7C38 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52269C9ADD54B027C5C88CF6 /* StudyView.swift */; };
+		9EE3941B275CA1CE1416668E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62798E50BC9F86299DCB5DDA /* Models.swift */; };
+		A1715F6EC0542F999E9ADFD6 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9A5ED4455929ECB03E615 /* RootView.swift */; };
+		A68398F8D5CFE170DA6D2E67 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38FF92087A32B8F7BEB08 /* SettingsView.swift */; };
+		B94C2575FA53F079A6E4B06E /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52269C9ADD54B027C5C88CF6 /* StudyView.swift */; };
+		B9B3F41FBBCBFD08BB8C0B90 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEC7BA2086D9EE88DB098C /* Theme.swift */; };
+		B9CB39BD625A9C3D5DD8FAD6 /* RoadmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FDFF01DCBB48AA259379D /* RoadmapView.swift */; };
+		C67E0119EDBBAE4B579C9C88 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AA1055C63D8F00A66C0EA1 /* APIClient.swift */; };
+		CAC91BA6FF5B1E1103868F93 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9A5ED4455929ECB03E615 /* RootView.swift */; };
+		CC9A41DDEFA80BFB40DE11EA /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E569DAAFF5BD69DED5328 /* CalendarView.swift */; };
+		DCB8BA07783EF59A76DA7521 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEC7BA2086D9EE88DB098C /* Theme.swift */; };
+		E48F967AEEAE2FB86976C7A9 /* StudyPresenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A5D384543F30E97075EE4 /* StudyPresenceView.swift */; };
+		E7823E0E20B54FED8C1C7FAF /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E569DAAFF5BD69DED5328 /* CalendarView.swift */; };
+		F21F6ACC6304EE84DCB1B5D9 /* StudyPresenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A5D384543F30E97075EE4 /* StudyPresenceView.swift */; };
+		F32C37AC58AC81C2C9DCC430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C93CD45DBDA3FF3A0F627F36 /* Assets.xcassets */; };
+		F3C9751356B312CDD2DFCE7E /* ConnectionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD67C0D34A6EB0C4A68D658 /* ConnectionSettings.swift */; };
+		FD1C3BFA3BED33A9DB9FED6F /* HeadphoneMotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47DD9C3C168B2B0316897E2 /* HeadphoneMotionService.swift */; };
+		A1607E1615025D9E9B51594B /* VoiceAnswerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C06795CC6C43A76C2179E3 /* VoiceAnswerService.swift */; };
+		FC7C3B0905AD2114B007B2FF /* TodayTimelineBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BA4F901B6B12212742BDA /* TodayTimelineBar.swift */; };
+		CE27D26E81350E45EF3DA95B /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D910BF1690AFB6D977843A /* TodayView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0BD67C0D34A6EB0C4A68D658 /* ConnectionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSettings.swift; sourceTree = "<group>"; };
+		18DEC7BA2086D9EE88DB098C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		1B5E569DAAFF5BD69DED5328 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		2C7A5D384543F30E97075EE4 /* StudyPresenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyPresenceView.swift; sourceTree = "<group>"; };
+		52269C9ADD54B027C5C88CF6 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
+		53E38FF92087A32B8F7BEB08 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		61B765A118342694BFB4C0B5 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		62798E50BC9F86299DCB5DDA /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		901AACBF019663C1EB35C81D /* DailyAIMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyAIMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B47DD9C3C168B2B0316897E2 /* HeadphoneMotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphoneMotionService.swift; sourceTree = "<group>"; };
+		63C06795CC6C43A76C2179E3 /* VoiceAnswerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAnswerService.swift; sourceTree = "<group>"; };
+		997BA4F901B6B12212742BDA /* TodayTimelineBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTimelineBar.swift; sourceTree = "<group>"; };
+		E7D910BF1690AFB6D977843A /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		BE726FC9E4DE9ECBD55F1973 /* DailyAI.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = DailyAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C93CD45DBDA3FF3A0F627F36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C9AA1055C63D8F00A66C0EA1 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		E88FDFF01DCBB48AA259379D /* RoadmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapView.swift; sourceTree = "<group>"; };
+		F8419B00A160A6AEC2FFE1ED /* DailyAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAIApp.swift; sourceTree = "<group>"; };
+		FAA9A5ED4455929ECB03E615 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		20257BBA07D8201DE6E32212 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				62798E50BC9F86299DCB5DDA /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		691BB758104FAAAC2A9AD230 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C9AA1055C63D8F00A66C0EA1 /* APIClient.swift */,
+				0BD67C0D34A6EB0C4A68D658 /* ConnectionSettings.swift */,
+				B47DD9C3C168B2B0316897E2 /* HeadphoneMotionService.swift */,
+				63C06795CC6C43A76C2179E3 /* VoiceAnswerService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6D562E1A840342FDFDBA7A08 = {
+			isa = PBXGroup;
+			children = (
+				D439D4B46E2CCF49552808E1 /* DailyAI */,
+				7A4FBF0183F434499D98CB33 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7380CB51CF1AB01151C60F69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1B5E569DAAFF5BD69DED5328 /* CalendarView.swift */,
+				997BA4F901B6B12212742BDA /* TodayTimelineBar.swift */,
+				E7D910BF1690AFB6D977843A /* TodayView.swift */,
+				2C7A5D384543F30E97075EE4 /* StudyPresenceView.swift */,
+				E88FDFF01DCBB48AA259379D /* RoadmapView.swift */,
+				FAA9A5ED4455929ECB03E615 /* RootView.swift */,
+				53E38FF92087A32B8F7BEB08 /* SettingsView.swift */,
+				52269C9ADD54B027C5C88CF6 /* StudyView.swift */,
+				18DEC7BA2086D9EE88DB098C /* Theme.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7A4FBF0183F434499D98CB33 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE726FC9E4DE9ECBD55F1973 /* DailyAI.app */,
+				901AACBF019663C1EB35C81D /* DailyAIMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8BEBD8C722245FEE18528D8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F8419B00A160A6AEC2FFE1ED /* DailyAIApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D439D4B46E2CCF49552808E1 /* DailyAI */ = {
+			isa = PBXGroup;
+			children = (
+				61B765A118342694BFB4C0B5 /* AppIcon.icns */,
+				C93CD45DBDA3FF3A0F627F36 /* Assets.xcassets */,
+				C8BEBD8C722245FEE18528D8 /* App */,
+				20257BBA07D8201DE6E32212 /* Models */,
+				691BB758104FAAAC2A9AD230 /* Services */,
+				7380CB51CF1AB01151C60F69 /* Views */,
+			);
+			path = DailyAI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		43D15CD1FA37FB88FA972C6A /* DailyAIMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 636DA8A732BAEAA70AC427CC /* Build configuration list for PBXNativeTarget "DailyAIMac" */;
+			buildPhases = (
+				0D8B5FCC4B1F55020780C51F /* Sources */,
+				D6949F9526118765B775A451 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DailyAIMac;
+			packageProductDependencies = (
+			);
+			productName = DailyAIMac;
+			productReference = 901AACBF019663C1EB35C81D /* DailyAIMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6C7C62E1AE25DF78799C7A64 /* DailyAI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D304D2A2198EA03662E0DB4 /* Build configuration list for PBXNativeTarget "DailyAI" */;
+			buildPhases = (
+				07BA3D2DA151645385DC1248 /* Sources */,
+				E365E314A794EC869868599A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DailyAI;
+			packageProductDependencies = (
+			);
+			productName = DailyAI;
+			productReference = BE726FC9E4DE9ECBD55F1973 /* DailyAI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9E522F88F27A133349F1C532 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					43D15CD1FA37FB88FA972C6A = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0511ECE73553777A07DF9867 /* Build configuration list for PBXProject "DailyAI" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 6D562E1A840342FDFDBA7A08;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 7A4FBF0183F434499D98CB33 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6C7C62E1AE25DF78799C7A64 /* DailyAI */,
+				43D15CD1FA37FB88FA972C6A /* DailyAIMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D6949F9526118765B775A451 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				145B96B56552E79E849494E3 /* AppIcon.icns in Resources */,
+				779609E84C2822D652009841 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E365E314A794EC869868599A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EC26586CB1076F35D642E25 /* AppIcon.icns in Resources */,
+				F32C37AC58AC81C2C9DCC430 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07BA3D2DA151645385DC1248 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FC34D03A87FED2FDF6DE189 /* APIClient.swift in Sources */,
+				CC9A41DDEFA80BFB40DE11EA /* CalendarView.swift in Sources */,
+				02DD179C13C504CF86424126 /* ConnectionSettings.swift in Sources */,
+				9729C30184C81703C0D8D582 /* DailyAIApp.swift in Sources */,
+				7D75292AB2A408BC7E921A0C /* HeadphoneMotionService.swift in Sources */,
+				7D2196720D3F4E69F323B9B0 /* VoiceAnswerService.swift in Sources */,
+				44D523753FB734A41F155A8D /* TodayTimelineBar.swift in Sources */,
+				BA94F45DFFB7D6F2D8AB58E1 /* TodayView.swift in Sources */,
+				415BE9112AAEFBE933696D97 /* Models.swift in Sources */,
+				F21F6ACC6304EE84DCB1B5D9 /* StudyPresenceView.swift in Sources */,
+				B9CB39BD625A9C3D5DD8FAD6 /* RoadmapView.swift in Sources */,
+				A1715F6EC0542F999E9ADFD6 /* RootView.swift in Sources */,
+				A68398F8D5CFE170DA6D2E67 /* SettingsView.swift in Sources */,
+				B94C2575FA53F079A6E4B06E /* StudyView.swift in Sources */,
+				B9B3F41FBBCBFD08BB8C0B90 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D8B5FCC4B1F55020780C51F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C67E0119EDBBAE4B579C9C88 /* APIClient.swift in Sources */,
+				E7823E0E20B54FED8C1C7FAF /* CalendarView.swift in Sources */,
+				F3C9751356B312CDD2DFCE7E /* ConnectionSettings.swift in Sources */,
+				881F6CF348AF5731D2D5EF26 /* DailyAIApp.swift in Sources */,
+				FD1C3BFA3BED33A9DB9FED6F /* HeadphoneMotionService.swift in Sources */,
+				A1607E1615025D9E9B51594B /* VoiceAnswerService.swift in Sources */,
+				FC7C3B0905AD2114B007B2FF /* TodayTimelineBar.swift in Sources */,
+				CE27D26E81350E45EF3DA95B /* TodayView.swift in Sources */,
+				9EE3941B275CA1CE1416668E /* Models.swift in Sources */,
+				E48F967AEEAE2FB86976C7A9 /* StudyPresenceView.swift in Sources */,
+				0587D12EF91E7FEA383FB4C4 /* RoadmapView.swift in Sources */,
+				CAC91BA6FF5B1E1103868F93 /* RootView.swift in Sources */,
+				8889207115FD49D1D200F656 /* SettingsView.swift in Sources */,
+				98D73987BF9CADC566FB7C38 /* StudyView.swift in Sources */,
+				DCB8BA07783EF59A76DA7521 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		143F1CFA120ABC46DF824E34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		1EAF448C9CFB28F37417F3EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMotionUsageDescription = "DailyAI uses AirPods motion to detect when you are actively studying.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "DailyAI uses the microphone so the AI tutor can hear your spoken answers.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "DailyAI uses speech recognition to understand your spoken answers during voice study sessions.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wlstmd.DailyAI;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		49181CD370A6349BABBEE1D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleIconFile = AppIcon;
+				INFOPLIST_KEY_NSMotionUsageDescription = "DailyAI uses AirPods motion to detect when you are actively studying.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "DailyAI uses the microphone so the AI tutor can hear your spoken answers.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "DailyAI uses speech recognition to understand your spoken answers during voice study sessions.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wlstmd.DailyAI.mac;
+				PRODUCT_NAME = DailyAI;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C8711BAE9E4EC739023D1956 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleIconFile = AppIcon;
+				INFOPLIST_KEY_NSMotionUsageDescription = "DailyAI uses AirPods motion to detect when you are actively studying.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "DailyAI uses the microphone so the AI tutor can hear your spoken answers.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "DailyAI uses speech recognition to understand your spoken answers during voice study sessions.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wlstmd.DailyAI.mac;
+				PRODUCT_NAME = DailyAI;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CD8A04BA3D9A49EC1163C362 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		DA6CAC5BBCCABC1944D5A587 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMotionUsageDescription = "DailyAI uses AirPods motion to detect when you are actively studying.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "DailyAI uses the microphone so the AI tutor can hear your spoken answers.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "DailyAI uses speech recognition to understand your spoken answers during voice study sessions.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wlstmd.DailyAI;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0511ECE73553777A07DF9867 /* Build configuration list for PBXProject "DailyAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				143F1CFA120ABC46DF824E34 /* Debug */,
+				CD8A04BA3D9A49EC1163C362 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		1D304D2A2198EA03662E0DB4 /* Build configuration list for PBXNativeTarget "DailyAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EAF448C9CFB28F37417F3EA /* Debug */,
+				DA6CAC5BBCCABC1944D5A587 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		636DA8A732BAEAA70AC427CC /* Build configuration list for PBXNativeTarget "DailyAIMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8711BAE9E4EC739023D1956 /* Debug */,
+				49181CD370A6349BABBEE1D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9E522F88F27A133349F1C532 /* Project object */;
+}
